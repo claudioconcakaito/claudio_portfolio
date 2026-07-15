@@ -1452,9 +1452,18 @@ def convert_purchase_to_aud(total_cost, currency, date_str):
     "📈 Forecast"
 ])
 
-# ══════════════════════════════════════════════════════════════════════════════
+# ═══════════════# ── ADD THIS BELOW THE FUNCTIONS ─────────────────────────────────────────────
+with st.sidebar:
+    st.markdown("### Data Controls")
+    if st.button("🔄 Force Refresh Data", use_container_width=True):
+        # Clears the cache for just this specific function
+        _load_raiz_csv_raw.clear()
+        st.toast("Cache cleared! Fetching latest Google Drive data...", icon="✨")
+        st.rerun()
+
+═══════════════════════════════════════════════════════════════
 # TAB 0 — DASHBOARD
-# ══════════════════════════════════════════════════════════════════════════════
+#════════════════════════════════════════════════════════════════════════════
 with tab0:
 
     # ── Always pull fresh values ──────────────────────────────────────────────
